@@ -1,0 +1,66 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel API",
+        "version": "1"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "USER"
+                ],
+                "summary": "User login",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "user email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "user password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "operationId": "App\\Http\\Controllers\\ProductController::index",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of all products."
+                    }
+                }
+            }
+        },
+        "/api/products/search/pro": {
+            "get": {
+                "operationId": "App\\Http\\Controllers\\ProductController::search",
+                "responses": {
+                    "200": {
+                        "description": "Search products by name (in this case products wich name contains the word: pro)"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
